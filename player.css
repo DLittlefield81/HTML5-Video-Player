@@ -46,7 +46,7 @@ video {
 
 #pbar {
     height: 5px;
-    width: 50%;
+    width: 0%;
     background-color: var(--color-lightblue);
 }
 
