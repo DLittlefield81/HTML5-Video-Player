@@ -8,6 +8,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./player.css" >
     <title>Video Player</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +22,7 @@
         <![endif]-->
     <div id="player">
         <div id="video-container">
-            <video id="" width="500" height="300" poster="images/thumbnail.png">
+            <video id="" poster="images/thumbnail.png">
                 <source src="sample.mp4">
                 It seems your browser does not suppor the HTML5 video tag
             </video>
@@ -31,8 +33,15 @@
             </div>
         </div>
         <div id="buttons-container">
-            <img src="images/play.png" alt="Play" />
-            <div id="time-field"></div>
+            <img src="./images/play.svg" alt"Play">
+            <div id="time-field">
+                00:00 / 00:00
+            </div>
+            <img src="./images/sound.svg" alt"Volume">
+            <div id="sbar-container">
+                <div id="sbar"></div>
+            </div>
+            <img src="./images/fullscreen.svg" alt"Fullscreen">
         </div>
     </div>
 
