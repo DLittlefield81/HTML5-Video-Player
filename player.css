@@ -82,6 +82,6 @@ video {
     height: 50%;
     background-color: var(--color-lightblue);
 }
-#fullscreen {
+#fullscreen-button {
     float: right;
 }
