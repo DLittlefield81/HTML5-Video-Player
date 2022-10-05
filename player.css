@@ -18,22 +18,40 @@
 img {
     background-color: var(--color-darkgrey);
 }
+
 img:hover {
     background-color: var(--color-lightblue);
 
 }
-img, #pbar-container, #sbar-container {
+
+img,
+#pbar-container,
+#sbar-container {
     cursor: pointer;
 }
 
 #video-container {
     width: 640px;
     height: 360px;
+    position: relative;
 }
 
 video {
     height: 100%;
     width: 100%;
+}
+
+#screen {
+    height: 100%;
+    width: 100%;
+    line-height: 360px;
+    text-align: center;
+    position: absolute;
+    z-index: 1 !important;
+}
+
+#screen img {
+    vertical-align: middle;
 }
 
 
@@ -81,6 +99,7 @@ video {
     width: 100%;
     background-color: var(--color-lightblue);
 }
+
 #fullscreen-button {
     float: right;
 }

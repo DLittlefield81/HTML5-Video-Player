@@ -12,6 +12,8 @@ window.addEventListener('load', function () {
     soundButton = document.getElementById('sound-button');
     sbarContainer = document.getElementById('sbar-container');
     sbar = document.getElementById('sbar');
+    fullscreenButton = document.getElementById('fullscreen-button');
+
 
     video.load();
     video.addEventListener('canplay', function () {
@@ -21,6 +23,7 @@ window.addEventListener('load', function () {
         updatePlayer();
         soundButton.addEventListener('click', muteOrUnmute, false);
         sbarContainer.addEventListener('click', changeVolume, false);
+        fullscreenButton.addEventListener('click', fullscreen, false);
     }, false);
 
 }, false);
@@ -88,4 +91,16 @@ function changeVolume(ev) {
     video.muted = false;
     soundButton.src = './images/sound.svg';
     sbar.style.display = 'block';
+}
+function fullscreen() {
+    if (video.requestFullScreen) {
+        video.requestFullScreen();
+    } else if (video.webkitRequestFullScreen) {
+        video.webkitRequestFullScreen();
+    } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+    } else if (video.msRequestFullScreen) {
+        video.msRequestFullScreen();
+    }
+    
 }
