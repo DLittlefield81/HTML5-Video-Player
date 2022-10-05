@@ -9,6 +9,9 @@ window.addEventListener('load', function () {
     // Buttons Container
     playButton = document.getElementById('play-button');
     timeField = document.getElementById('time-field');
+    soundButton = document.getElementById('sound-button');
+    sbarContainer = document.getElementById('sbar-container');
+    sbar = document.getElementById('sbar');
 
     video.load();
     video.addEventListener('canplay', function () {
@@ -16,7 +19,8 @@ window.addEventListener('load', function () {
         playButton.addEventListener('click', playOrPause, false);
         pbarContainer.addEventListener('click', skip, false);
         updatePlayer();
-        
+        soundButton.addEventListener('click', muteOrUnmute, false);
+        sbarContainer.addEventListener('click', changeVolume, false);
     }, false);
 
 }, false);
@@ -32,7 +36,15 @@ function playOrPause() {
         window.clearInterval(update);
     }
 }
-
+function muteOrUnmute() {
+    if (!video.muted) {
+        video.muted = true;
+        soundButton.src = './images/mute.svg';
+    } else {
+        video.muted = false;
+        soundButton.src = './images/sound.svg';
+    }
+}
 function updatePlayer() {
     var percentage = (video.currentTime / video.duration) * 100;
     pbar.style.width = percentage + '%';
@@ -43,7 +55,7 @@ function updatePlayer() {
     }
 }
 function skip(ev) {
-    var mouseX = ev.pageX - pbarContainer.Offset.Left;
+    var mouseX = ev.pageX - pbarContainer.offsetLeft;
     var width = window.getComputedStyle(pbarContainer).getPropertyValue('width');
     width = parseFloat(width.substr(0, width.length - 2));
     video.currentTime = (mouseX / width) * video.duration;
@@ -62,4 +74,13 @@ function getFormattedTime() {
     if (totalSeconds.toString().length === 1) totalSeconds = '0' + totalSeconds;
 
     return minutes + ":" + seconds + ' / ' + totalMinutes +':'+ totalSeconds;
+}
+
+function changeVolume(ev) {
+    var mouseX = ev.pageX - sbarContainer.offsetLeft;
+    var width = window.getComputedStyle(sbarContainer).getPropertyValue('width');
+    width = parseFloat(width.substr(0, width.length - 2));
+    
+    video.volume = (mouseX / width);
+    sbar.style.width = (mouseX / width) * 100 + '%';
 }

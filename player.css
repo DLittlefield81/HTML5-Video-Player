@@ -2,7 +2,6 @@
     /* Game Styling */
     --color-darkgrey: rgb(30, 30, 30);
     --color-lightgrey: rgb(70, 70, 70);
-    ;
     --color-lightblue: rgb(50, 170, 220);
 
 }
@@ -78,8 +77,8 @@ video {
 }
 
 #sbar {
+    height: 100%;
     width: 100%;
-    height: 50%;
     background-color: var(--color-lightblue);
 }
 #fullscreen-button {
