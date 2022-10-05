@@ -33,7 +33,7 @@ Follow these steps to install this project on your local machine.
 - Not Deployed
 
 ## Images
-- ![Website](./assets/HTML5-Video-Player.png)
+- ![Video Player](./images/HTML5-Video-Player.png)
 
 ## Tests
 - Email me
