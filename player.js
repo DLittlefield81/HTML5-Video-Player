@@ -36,15 +36,7 @@ function playOrPause() {
         window.clearInterval(update);
     }
 }
-function muteOrUnmute() {
-    if (!video.muted) {
-        video.muted = true;
-        soundButton.src = './images/mute.svg';
-    } else {
-        video.muted = false;
-        soundButton.src = './images/sound.svg';
-    }
-}
+
 function updatePlayer() {
     var percentage = (video.currentTime / video.duration) * 100;
     pbar.style.width = percentage + '%';
@@ -75,7 +67,17 @@ function getFormattedTime() {
 
     return minutes + ":" + seconds + ' / ' + totalMinutes +':'+ totalSeconds;
 }
-
+function muteOrUnmute() {
+    if (!video.muted) {
+        video.muted = true;
+        soundButton.src = './images/mute.svg';
+        sbar.style.display = 'none';
+    } else {
+        video.muted = false;
+        soundButton.src = './images/sound.svg';
+        sbar.style.display = 'block';
+    }
+}
 function changeVolume(ev) {
     var mouseX = ev.pageX - sbarContainer.offsetLeft;
     var width = window.getComputedStyle(sbarContainer).getPropertyValue('width');
@@ -83,4 +85,7 @@ function changeVolume(ev) {
     
     video.volume = (mouseX / width);
     sbar.style.width = (mouseX / width) * 100 + '%';
+    video.muted = false;
+    soundButton.src = './images/sound.svg';
+    sbar.style.display = 'block';
 }
