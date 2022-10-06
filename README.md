@@ -30,7 +30,7 @@ Follow these steps to install this project on your local machine.
 - open in web browser
 
 ## Application
-- Not Deployed
+- https://dlittlefield81.github.io/HTML5-Video-Player/
 
 ## Images
 - ![Video Player](./images/HTML5-Video-Player.png)
